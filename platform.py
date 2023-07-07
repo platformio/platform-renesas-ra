@@ -44,7 +44,7 @@ class RenesasraPlatform(PlatformBase):
         for package, interface in (
             ("tool-jlink", "jlink"),
             ("tool-openocd", "cmsis-dap"),
-            ("tool-dfuutil", "dfu"),
+            ("tool-dfuutil-arduino", "dfu"),
             ("tool-bossac", "sam-ba"),
         ):
             _configure_uploader_packages(package, interface)

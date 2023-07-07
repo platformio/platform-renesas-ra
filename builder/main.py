@@ -147,7 +147,7 @@ elif upload_protocol == "dfu":
 
     # default tool for all boards with embedded DFU bootloader over USB
     _upload_tool = '"%s"' % join(
-        platform.get_package_dir("tool-dfuutil") or "", "bin", "dfu-util"
+        platform.get_package_dir("tool-dfuutil-arduino") or "", "dfu-util"
     )
     _upload_flags = [
         "-d",
