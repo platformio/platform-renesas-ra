@@ -1,0 +1,74 @@
+{
+  "name": "renesas-ra",
+  "title": "Renesas RA",
+  "description": "Renesas Advanced (RA) 32-bit microcontrollers with the Arm Cortex-M33, -M23 and -M4 processor cores deliver key advantages compared to competitive Arm Cortex-M MCUs by providing stronger embedded security, superior CoreMark performance and ultra-low power operation.",
+  "homepage": "https://www.renesas.com/us/en/products/microcontrollers-microprocessors/ra-cortex-m-mcus",
+  "license": "Apache-2.0",
+  "keywords": [
+    "dev-platform",
+    "ARM",
+    "Cortex-M",
+    "Renesas",
+    "RA2",
+    "RA4",
+    "RA6",
+    "RA8"
+  ],
+  "engines": {
+    "platformio": "^6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/platformio/platform-renesas-ra.git"
+  },
+  "version": "0.0.1",
+  "frameworks": {
+    "arduino": {
+      "package": "framework-arduinorenesas-uno",
+      "script": "builder/frameworks/arduino.py"
+    }
+  },
+  "packages": {
+    "toolchain-gccarmnoneeabi": {
+      "type": "toolchain",
+      "owner": "platformio",
+      "version": "~1.100301.0"
+    },
+    "framework-arduinorenesas-uno": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.0.1"
+    },
+    "framework-arduinorenesas-portenta": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.0.1"
+    },
+    "tool-dfuutil": {
+      "type": "uploader",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.11.0"
+    },
+    "tool-bossac": {
+      "type": "uploader",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~1.10901.0"
+    },
+    "tool-openocd": {
+      "type": "uploader",
+      "optional": true,
+      "owner": "platformio",
+      "version": "~3.1200.0"
+    },
+    "tool-jlink": {
+      "type": "uploader",
+      "optional": true,
+      "owner": "platformio",
+      "version": "^1.72000.0"
+    }
+  }
+}
