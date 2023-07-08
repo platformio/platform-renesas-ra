@@ -25,6 +25,8 @@ import os
 
 from SCons.Script import DefaultEnvironment
 
+from platformio import fs
+
 env = DefaultEnvironment()
 platform = env.PioPlatform()
 board = env.BoardConfig()
@@ -103,9 +105,10 @@ env.Append(
     # Due to long path names "-iprefix" hook is required to avoid toolchain crashes
     CCFLAGS=[
         "-Os",
-        "-iprefix" + FRAMEWORK_DIR,
-        "@%s" % os.path.join(FRAMEWORK_DIR, "variants", board.get(
-            "build.variant"), "includes.txt"),
+        # Remove the 'to_unix_path' call when PIO Core v6.1.10 is released
+        "-iprefix" + fs.to_unix_path(FRAMEWORK_DIR),
+        "@%s" % fs.to_unix_path(os.path.join(FRAMEWORK_DIR, "variants", board.get(
+            "build.variant"), "includes.txt")),
         "-w",
         "-fno-builtin"
     ],
