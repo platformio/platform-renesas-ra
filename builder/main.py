@@ -15,7 +15,7 @@
 import sys
 from platform import system
 from os import makedirs
-from os.path import isdir, join
+from os.path import basename, isdir, join
 
 from platformio.public import list_serial_ports
 
