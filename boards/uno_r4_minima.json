@@ -4,8 +4,8 @@
       "ldscript": "fsp.ld"
     },
     "extra_flags": [
+      "-DARDUINO_MINIMA",
       "-DARDUINO_UNOR4_MINIMA",
-      "-DLWIP_DNS=1",
       "-DCFG_TUSB_MCU=OPT_MCU_RAXXX"
     ],
     "core": "arduino",

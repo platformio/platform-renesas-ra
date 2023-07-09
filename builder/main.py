@@ -15,7 +15,7 @@
 import sys
 from platform import system
 from os import makedirs
-from os.path import isdir, join
+from os.path import basename, isdir, join
 
 from platformio.public import list_serial_ports
 
@@ -147,43 +147,18 @@ elif upload_protocol == "dfu":
 
     # default tool for all boards with embedded DFU bootloader over USB
     _upload_tool = '"%s"' % join(
-        platform.get_package_dir("tool-dfuutil") or "", "bin", "dfu-util"
+        platform.get_package_dir("tool-dfuutil-arduino") or "", "dfu-util"
     )
     _upload_flags = [
         "-d",
         ",".join(["%s:%s" % (hwid[0], hwid[1]) for hwid in hwids]),
         "-a",
         "0",
-        "-s",
-        "%s:leave" % board.get("upload.offset_address", "0x08000000"),
-        "-D",
+        "-Q",
+        "-D"
     ]
 
     upload_actions = [env.VerboseAction("$UPLOADCMD", "Uploading $SOURCE")]
-
-    if "dfu-util" in _upload_tool:
-        # Add special DFU header to the binary image
-        env.AddPostAction(
-            join("$BUILD_DIR", "${PROGNAME}.bin"),
-            env.VerboseAction(
-                " ".join(
-                    [
-                        '"%s"'
-                        % join(
-                            platform.get_package_dir("tool-dfuutil") or "",
-                            "bin",
-                            "dfu-suffix",
-                        ),
-                        "-v %s" % vid,
-                        "-p %s" % pid,
-                        "-d 0xffff",
-                        "-a",
-                        "$TARGET",
-                    ]
-                ),
-                "Adding dfu suffix to ${PROGNAME}.bin",
-            ),
-        )
 
     env.Replace(
         UPLOADER=_upload_tool,

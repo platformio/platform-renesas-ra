@@ -21,7 +21,7 @@
     "type": "git",
     "url": "https://github.com/platformio/platform-renesas-ra.git"
   },
-  "version": "0.0.1",
+  "version": "0.0.2",
   "frameworks": {
     "arduino": {
       "package": "framework-arduinorenesas-uno",
@@ -46,7 +46,7 @@
       "owner": "platformio",
       "version": "~1.0.1"
     },
-    "tool-dfuutil": {
+    "tool-dfuutil-arduino": {
       "type": "uploader",
       "optional": true,
       "owner": "platformio",

@@ -4,6 +4,7 @@
       "ldscript": "fsp.ld"
     },
     "extra_flags": [
+      "-DARDUINO_UNOWIFIR4",
       "-DARDUINO_UNOR4_WIFI",
       "-DNO_USB",
       "-DBACKTRACE_SUPPORT",

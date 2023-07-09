@@ -25,6 +25,8 @@ import os
 
 from SCons.Script import DefaultEnvironment
 
+from platformio import fs
+
 env = DefaultEnvironment()
 platform = env.PioPlatform()
 board = env.BoardConfig()
@@ -56,7 +58,7 @@ cxxflags = set(load_flags("cxxflags"))
 ccflags = cflags.intersection(cxxflags)
 
 env.Append(
-    ASFLAGS=[f for f in ccflags if isinstance(f, str) and f.startswith("-m")],
+    ASFLAGS=[f for f in sorted(ccflags) if isinstance(f, str) and f.startswith("-m")],
 
     ASPPFLAGS=["-x", "assembler-with-cpp"],
 
@@ -77,7 +79,10 @@ env.Append(
         "-mcpu=%s" % board.get("build.cpu"),
         "-mthumb",
         "-Wl,--gc-sections",
-        "--specs=nosys.specs"
+        "--specs=nano.specs",
+        "--specs=nosys.specs",
+        "-nostdlib",
+        '-Wl,-Map="%s"' % os.path.join("${BUILD_DIR}", "${PROGNAME}.map")
     ],
 
     LIBSOURCE_DIRS=[os.path.join(FRAMEWORK_DIR, "libraries")],
@@ -86,12 +91,26 @@ env.Append(
 )
 
 env.Append(
+    ASFLAGS=[
+        "-Os",
+        "-fsigned-char",
+        "-ffunction-sections",
+        "-fdata-sections"
+    ],
+
+    CFLAGS=[
+        "-std=gnu11"
+    ],
+
     # Due to long path names "-iprefix" hook is required to avoid toolchain crashes
     CCFLAGS=[
-        "-iprefix" + FRAMEWORK_DIR,
-        "@%s" % os.path.join(FRAMEWORK_DIR, "variants", board.get(
-            "build.variant"), "includes.txt"),
-        "-w"
+        "-Os",
+        # Remove the 'to_unix_path' call when PIO Core v6.1.10 is released
+        "-iprefix" + fs.to_unix_path(FRAMEWORK_DIR),
+        "@%s" % fs.to_unix_path(os.path.join(FRAMEWORK_DIR, "variants", board.get(
+            "build.variant"), "includes.txt")),
+        "-w",
+        "-fno-builtin"
     ],
 
     CPPDEFINES=[
@@ -100,6 +119,13 @@ env.Append(
         "ARDUINO_FSP",
         "_XOPEN_SOURCE",
         ("F_CPU", "$BOARD_F_CPU")
+    ],
+
+    CXXFLAGS=[
+        "-std=gnu++17",
+        "-fno-rtti",
+        "-fno-exceptions",
+        "-fno-use-cxa-atexit"
     ],
 
     CPPPATH=[
@@ -121,14 +147,6 @@ if board.id == "portenta_c33":
     fpv_version = "5"
 
 env.Append(
-    ASFLAGS=[
-        "-mfloat-abi=hard",
-        "-mfpu=fpv%s-d16" % fpv_version
-    ],
-    CCFLAGS=[
-        "-mfloat-abi=hard",
-        "-mfpu=fpv%s-d16" % fpv_version
-    ],
     LINKFLAGS=[
         "-mfloat-abi=hard",
         "-mfpu=fpv%s-d16" % fpv_version
