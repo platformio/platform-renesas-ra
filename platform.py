@@ -49,11 +49,15 @@ class RenesasraPlatform(PlatformBase):
         ):
             _configure_uploader_packages(package, interface)
 
-        if variables.get("board") == "portenta_c33":
-            self.frameworks["arduino"]["package"] = "framework-arduinorenesas-portenta"
-            self.packages["framework-arduinorenesas-portenta"]["optional"] = False
-        else:
-            self.packages["framework-arduinorenesas-uno"]["optional"] = False
+        frameworks = variables.get("pioframework", [])
+        if "arduino" in frameworks:
+            if variables.get("board") == "portenta_c33":
+                self.frameworks["arduino"]["package"] = "framework-arduinorenesas-portenta"
+                self.packages["framework-arduinorenesas-portenta"]["optional"] = False
+            else:
+                self.packages["framework-arduinorenesas-uno"]["optional"] = False
+        if "fsp" in frameworks:
+            self.packages["framework-renesas-fsp"]["optional"] = False
 
         return super().configure_default_packages(variables, targets)
 
