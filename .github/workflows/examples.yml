@@ -12,6 +12,7 @@ jobs:
           - "examples/arduino-blink"
           - "examples/arduino-internal-libs"
           - "examples/fsp-blink"
+          - "examples/fsp-button-isr"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3

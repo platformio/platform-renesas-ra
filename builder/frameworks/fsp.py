@@ -63,12 +63,17 @@ else:
 if board.id in ("uno_r4_minima", "uno_r4_wifi"):
     src_filter += " ".join(["+<" + join(sublib) + ">" for sublib in to_be_built_sublibs_uno_r4_x])
     env.Append(CPPPATH=[
+        join(FRAMEWORK_DIR, "fsp", "src", "bsp", "mcu", "ra4m1"),
         join(FRAMEWORK_DIR, "fsp", "src", "r_sce", "crypto_procedures", "src", "sce5", "plainkey", "public", "inc"),
         join(FRAMEWORK_DIR, "fsp", "src", "r_sce", "crypto_procedures", "src", "sce5", "plainkey", "private", "inc")
+    ])
+    env.Append(CPPDEFINES=[
+        ("_RA_CORE", "CM4")
     ])
 elif board.id == "portenta_c33":
     src_filter += " ".join(["+<" + join(sublib) + ">" for sublib in to_be_built_sublibs_portenta_c33])
     env.Append(CPPPATH=[
+        join(FRAMEWORK_DIR, "fsp", "src", "bsp", "mcu", "ra6m5"),
         join(FRAMEWORK_DIR, "fsp", "src", "r_sce", "crypto_procedures", "src", "sce9", "plainkey", "public", "inc"),
         join(FRAMEWORK_DIR, "fsp", "src", "r_sce", "crypto_procedures", "src", "sce9", "plainkey", "private", "inc"),
         join(FRAMEWORK_DIR, "fsp", "src", "r_sce_protected", "crypto_procedures_protected", "src", "sce9", "inc", "api"),
@@ -76,6 +81,9 @@ elif board.id == "portenta_c33":
         join(FRAMEWORK_DIR, "fsp", "src", "r_sce_protected", "crypto_procedures_protected", "src", "sce9", "private", "inc"),
         join(FRAMEWORK_DIR, "fsp", "src", "r_sce_protected", "crypto_procedures_protected", "src", "sce9", "public", "inc"),
         join(FRAMEWORK_DIR, "variants", board.get("build.variant"), "includes", "ra_cfg", "driver")
+    ])
+    env.Append(CPPDEFINES=[
+        ("_RA_CORE", "CM33")
     ])
 
 # Build the FSP framework
