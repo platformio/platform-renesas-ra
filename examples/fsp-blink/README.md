@@ -8,7 +8,7 @@ How to build PlatformIO based project
 
 ```shell
 # Change directory to example
-$ cd platform-renesas-ra/examples/arduino-blink
+$ cd platform-renesas-ra/examples/fsp-blink
 
 # Build project
 $ pio run
@@ -19,3 +19,8 @@ $ pio run --target upload
 # Clean build files
 $ pio run --target clean
 ```
+
+Note
+----
+
+Since this firmware does not include native USB functionality, on the Uno R4 Minima and Portenta C33, you will have to quickly double-press the reset button to enter bootloader mode again in order to upload a new firmware. The bootloader itself is **not** overwritten by this firmware.
