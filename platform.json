@@ -30,6 +30,10 @@
     "fsp": {
       "package": "framework-renesas-fsp",
       "script": "builder/frameworks/fsp.py"
+    },
+    "cmsis": {
+      "package": "framework-cmsis-renesas",
+      "script": "builder/frameworks/cmsis.py"
     }
   },
   "packages": {
@@ -55,6 +59,12 @@
       "optional": true,
       "owner": "platformio",
       "version": "https://github.com/maxgerhardt/framework-renesas-fsp.git"
+    },
+    "framework-cmsis-renesas": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/maxgerhardt/framework-cmsis-renesas"
     },
     "tool-dfuutil-arduino": {
       "type": "uploader",

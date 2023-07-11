@@ -37,7 +37,8 @@
   },
   "frameworks": [
     "arduino",
-    "fsp"
+    "fsp",
+    "cmsis"
   ],
   "name": "Arduino Uno R4 WiFi",
   "upload": {

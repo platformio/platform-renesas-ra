@@ -1,5 +1,4 @@
-from os.path import isdir, isfile, join, dirname, realpath
-from string import Template
+from os.path import isdir, join
 
 from SCons.Script import DefaultEnvironment
 
@@ -39,6 +38,9 @@ env.Append(
         join(FRAMEWORK_DIR, "variants", board.get("build.variant"), "includes", "ra_cfg", "fsp_cfg"),
         join(FRAMEWORK_DIR, "variants", board.get("build.variant"), "includes", "ra_cfg", "fsp_cfg", "bsp"),
         join(FRAMEWORK_DIR, "variants", board.get("build.variant"), "tmp_gen_c_files")
+    ],
+    LINKFLAGS=[
+        "--specs=nano.specs"
     ],
     LIBPATH=[
         join(FRAMEWORK_DIR, "variants", board.get("build.variant"))

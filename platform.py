@@ -58,6 +58,8 @@ class RenesasraPlatform(PlatformBase):
                 self.packages["framework-arduinorenesas-uno"]["optional"] = False
         if "fsp" in frameworks:
             self.packages["framework-renesas-fsp"]["optional"] = False
+        if "cmsis" in frameworks:
+            self.packages["framework-cmsis-renesas"]["optional"] = False
 
         return super().configure_default_packages(variables, targets)
 

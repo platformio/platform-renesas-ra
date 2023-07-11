@@ -31,7 +31,8 @@
   },
   "frameworks": [
     "arduino",
-    "fsp"
+    "fsp",
+    "cmsis"
   ],
   "name": "Arduino Portenta C33",
   "upload": {
