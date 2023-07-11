@@ -26,6 +26,10 @@
     "arduino": {
       "package": "framework-arduinorenesas-uno",
       "script": "builder/frameworks/arduino.py"
+    },
+    "fsp": {
+      "package": "framework-renesas-fsp",
+      "script": "builder/frameworks/fsp.py"
     }
   },
   "packages": {
@@ -45,6 +49,12 @@
       "optional": true,
       "owner": "platformio",
       "version": "~1.0.1"
+    },
+    "framework-renesas-fsp": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "https://github.com/maxgerhardt/framework-renesas-fsp.git"
     },
     "tool-dfuutil-arduino": {
       "type": "uploader",

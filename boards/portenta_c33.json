@@ -30,7 +30,8 @@
     "svd_path": "R7FA6M5BH.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "fsp"
   ],
   "name": "Arduino Portenta C33",
   "upload": {

@@ -11,6 +11,7 @@ jobs:
         example:
           - "examples/arduino-blink"
           - "examples/arduino-internal-libs"
+          - "examples/fsp-blink"
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
