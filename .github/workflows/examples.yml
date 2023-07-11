@@ -11,6 +11,8 @@ jobs:
         example:
           - "examples/arduino-blink"
           - "examples/arduino-internal-libs"
+          - "examples/arduino-uno-r4-led-animation"
+          - "examples/arduino-wifiscan"
           - "examples/fsp-blink"
           - "examples/fsp-button-isr"
     runs-on: ${{ matrix.os }}
