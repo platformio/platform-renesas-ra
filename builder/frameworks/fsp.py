@@ -5,7 +5,7 @@ from SCons.Script import DefaultEnvironment
 env = DefaultEnvironment()
 platform = env.PioPlatform()
 board = env.BoardConfig()
-variant = variant
+variant = board.get("build.variant", "")
 
 env.SConscript("_bare.py")
 
