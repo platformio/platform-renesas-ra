@@ -58,13 +58,13 @@
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "https://github.com/maxgerhardt/framework-renesas-fsp.git"
+      "version": "1.40000.0"
     },
     "framework-cmsis-renesas": {
       "type": "framework",
       "optional": true,
       "owner": "platformio",
-      "version": "https://github.com/maxgerhardt/framework-cmsis-renesas"
+      "version": "1.40500.0"
     },
     "tool-dfuutil-arduino": {
       "type": "uploader",
