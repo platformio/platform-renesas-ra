@@ -5,6 +5,7 @@ from SCons.Script import DefaultEnvironment
 env = DefaultEnvironment()
 platform = env.PioPlatform()
 board = env.BoardConfig()
+variant = board.get("build.variant")
 
 env.SConscript("_bare.py")
 
@@ -34,9 +35,9 @@ env.Append(
         "--specs=nano.specs"
     ],
     LIBPATH=[
-        join(FRAMEWORK_DIR, "variants", board.get("build.variant"))
+        join(FRAMEWORK_DIR, "variants", variant)
     ],
-    LDSCRIPT_PATH=join(FRAMEWORK_DIR, "variants", board.get("build.variant"), "fsp.ld")
+    LDSCRIPT_PATH=join(FRAMEWORK_DIR, "variants", variant, "fsp.ld")
 )
 
 if board.id == "portenta_c33":
