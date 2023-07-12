@@ -26,6 +26,14 @@
     "arduino": {
       "package": "framework-arduinorenesas-uno",
       "script": "builder/frameworks/arduino.py"
+    },
+    "fsp": {
+      "package": "framework-renesas-fsp",
+      "script": "builder/frameworks/fsp.py"
+    },
+    "cmsis": {
+      "package": "framework-cmsis-renesas",
+      "script": "builder/frameworks/cmsis.py"
     }
   },
   "packages": {
@@ -45,6 +53,18 @@
       "optional": true,
       "owner": "platformio",
       "version": "~1.0.1"
+    },
+    "framework-renesas-fsp": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "1.40000.0"
+    },
+    "framework-cmsis-renesas": {
+      "type": "framework",
+      "optional": true,
+      "owner": "platformio",
+      "version": "1.40500.0"
     },
     "tool-dfuutil-arduino": {
       "type": "uploader",

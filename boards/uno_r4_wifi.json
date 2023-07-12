@@ -36,7 +36,9 @@
     "svd_path": "R7FA4M1AB.svd"
   },
   "frameworks": [
-    "arduino"
+    "arduino",
+    "fsp",
+    "cmsis"
   ],
   "name": "Arduino Uno R4 WiFi",
   "upload": {
