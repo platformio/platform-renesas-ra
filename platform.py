@@ -42,8 +42,6 @@ class RenesasraPlatform(PlatformBase):
                 self.packages[package_name]["optional"] = False
 
         for package, interface in (
-            ("tool-jlink", "jlink"),
-            ("tool-openocd", "cmsis-dap"),
             ("tool-dfuutil-arduino", "dfu"),
             ("tool-bossac", "sam-ba"),
         ):
