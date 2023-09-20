@@ -117,7 +117,7 @@ env.Append(
         ("ARDUINO", 10810),
         "ARDUINO_ARCH_RENESAS",
         "ARDUINO_FSP",
-        "_XOPEN_SOURCE",
+        ("_XOPEN_SOURCE", 700),
         ("F_CPU", "$BOARD_F_CPU")
     ],
 
