@@ -144,7 +144,7 @@ env.Append(
 
 fpv_version = "4-sp"
 if board.id == "portenta_c33":
-    fpv_version = "5"
+    fpv_version = "5-sp"
 
 env.Append(
     LINKFLAGS=[
