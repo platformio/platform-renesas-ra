@@ -142,14 +142,10 @@ env.Append(
 # Add FPU flags
 #
 
-fpv_version = "4-sp"
-if board.id == "portenta_c33":
-    fpv_version = "5-sp"
-
 env.Append(
     LINKFLAGS=[
         "-mfloat-abi=hard",
-        "-mfpu=fpv%s-d16" % fpv_version
+        "-mfpu=fpv%s-sp-d16" % ("5" if board.id == "portenta_c33" else "4"),
     ]
 )
 
