@@ -26,7 +26,7 @@
     "variant": "PORTENTA_C33"
   },
   "debug": {
-    "jlink_device": "RA6M5",
+    "jlink_device": "R7FA6M5",
     "svd_path": "R7FA6M5BH.svd"
   },
   "frameworks": [
