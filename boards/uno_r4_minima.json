@@ -6,6 +6,7 @@
     "extra_flags": [
       "-DARDUINO_MINIMA",
       "-DARDUINO_UNOR4_MINIMA",
+      "-DARDUINO_ARCH_RENESAS_UNO",
       "-DCFG_TUSB_MCU=OPT_MCU_RAXXX"
     ],
     "core": "arduino",
