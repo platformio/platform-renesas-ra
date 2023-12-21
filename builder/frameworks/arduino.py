@@ -79,9 +79,7 @@ env.Append(
         "-mcpu=%s" % board.get("build.cpu"),
         "-mthumb",
         "-Wl,--gc-sections",
-        "--specs=nano.specs",
         "--specs=nosys.specs",
-        "-nostdlib",
         '-Wl,-Map="%s"' % os.path.join("${BUILD_DIR}", "${PROGNAME}.map")
     ],
 
@@ -148,6 +146,13 @@ env.Append(
         "-mfpu=fpv%s-sp-d16" % ("5" if board.id == "portenta_c33" else "4"),
     ]
 )
+
+if board.id != "portenta_c33":
+    env.Append(
+        LINKFLAGS=[
+            "--specs=nano.specs",
+        ]
+    )
 
 #
 # Add Linker scripts
