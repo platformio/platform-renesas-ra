@@ -13,6 +13,7 @@ jobs:
           - "examples/arduino-internal-libs"
           - "examples/arduino-uno-r4-led-animation"
           - "examples/arduino-wifiscan"
+          - "examples/arduino-iot-cloud-basic"
           - "examples/cmsis-blink"
           - "examples/fsp-blink"
           - "examples/fsp-button-isr"
