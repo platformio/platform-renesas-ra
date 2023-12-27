@@ -26,7 +26,7 @@
     "variant": "MINIMA"
   },
   "debug": {
-    "jlink_device": "ra4m1",
+    "jlink_device": "R7FA4M1AB",
     "svd_path": "R7FA4M1AB.svd"
   },
   "frameworks": [

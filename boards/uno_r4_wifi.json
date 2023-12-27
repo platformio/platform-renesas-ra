@@ -32,7 +32,7 @@
     "onboard_tools": [
       "cmsis-dap"
     ],
-    "jlink_device": "ra4m1",
+    "jlink_device": "R7FA4M1AB",
     "openocd_config": "openocd.cfg",
     "svd_path": "R7FA4M1AB.svd"
   },
