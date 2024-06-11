@@ -29,6 +29,9 @@
     "variant": "UNOWIFIR4"
   },
   "debug": {
+    "default_tools": [
+      "cmsis-dap"
+    ],
     "onboard_tools": [
       "cmsis-dap"
     ],
