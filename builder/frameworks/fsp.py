@@ -71,10 +71,10 @@ src_filter = [
     "+<bsp/mcu/all>"
 ]
 if board.get("build.mcu", "").lower().startswith("ra4m1"):
-    src_filter.append("+<bsp/mcu/ra4m1>") # Uno R4 (Minima, WiFI)
+    src_filter.append("+<bsp/mcu/ra4m1>") # Uno R4 (Minima, WiFI, RMC-RA4M1)
 else:
     src_filter.append("+<bsp/mcu/ra6m5>") # Portenta
-if board.id in ("uno_r4_minima", "uno_r4_wifi"):
+if board.id in ("uno_r4_minima", "uno_r4_wifi", "rmc_ra4m1_20"):
     src_filter.extend(["+<" + sublib + ">" for sublib in sublibs_uno_r4_x])
     env.Append(CPPPATH=[
         join(FRAMEWORK_DIR, "fsp", "src", "bsp", "mcu", "ra4m1"),
