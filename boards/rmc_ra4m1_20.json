@@ -1,0 +1,53 @@
+{
+  "build": {
+    "arduino": {
+      "ldscript": "fsp.ld"
+    },
+    "extra_flags": [
+      "-DARDUINO_MINIMA",
+      "-DARDUINO_UNOR4_MINIMA",
+      "-DARDUINO_ARCH_RENESAS_UNO",
+      "-DARDUINO_RMC-RA4M1",
+      "-DCFG_TUSB_MCU=OPT_MCU_RAXXX"
+    ],
+    "core": "arduino",
+    "cpu": "cortex-m4",
+    "f_cpu": "48000000L",
+    "hwids": [
+      [
+        "0x2341",
+        "0x0069"
+      ],
+      [
+        "0x2341",
+        "0x0369"
+      ]
+    ],
+    "mcu": "ra4m1",
+    "variant": "rmc_ra4m1_20"
+  },
+  "debug": {
+    "jlink_device": "ra4m1",
+    "svd_path": "R7FA4M1AB.svd"
+  },
+  "frameworks": [
+    "arduino",
+    "fsp",
+    "cmsis"
+  ],
+  "name": "RMC-RA4M1",
+  "upload": {
+    "maximum_ram_size": 32768,
+    "maximum_size": 262144,
+    "native_usb": true,
+    "protocol": "dfu",
+    "protocols": [
+      "cmsis-dap",
+      "dfu",
+      "jlink"
+    ],
+    "offset_address": "0x4000"
+  },
+  "url": "https://www2.himdx.net/mcr/product/download.html#ra4m1",
+  "vendor": "Hitachi Document Solutions"
+}
