@@ -108,7 +108,7 @@ class RenesasraPlatform(PlatformBase):
                     },
                     "onboard": link in debug.get("onboard_tools", []),
                 }
-            elif link == "cmsis-dap" and board.id in ("uno_r4_wifi", "uno_r4_minima"):
+            elif link == "cmsis-dap" and board.id in ("uno_r4_wifi", "uno_r4_minima", "nano_r4"):
                 hwids = board.get("build.hwids", [["0x2341", "0x1002"]])
                 server_args = [
                     "-s",
